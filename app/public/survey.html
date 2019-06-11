@@ -7,11 +7,13 @@
 
 
     <title>FriendFinder</title>
-    
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+   
+    <!-- For Chosen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
 
 </head>
@@ -178,50 +180,44 @@
 </div>
 
 <script type="text/javascript">
-    var chosen = {
-        for (var config {
-            $('.chosen-select').chosen(config['.chosen-select']);
-          });
-        // Capture the form inputs 
-        $("#submit").on("click", function() {
-          // Form validation
-          function validateForm() {
-            var isValid = true;
-            $('.form-control').each(function() {
-              if ($(this).val() === '')
-                isValid = false;
-            });
-            $('.chosen-select').each(function() {
-              if ($(this).val() === "")
-                isValid = false
-            })
-            return isValid;
-          }
-          // If all required fields are filled
-          if (validateForm() == true) {
-            // Create an object for the user's data
-            var userInput = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
-              }
-              // Grab the URL of the website
-            var currentURL = window.location.origin;
-            // AJAX post the data to the friends API. 
-            $.post(currentURL + "/api/friends", userData, function(data) {
-              // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-              $("#matchName").text(data.name);
-              $('#matchImg').attr("src", data.photo);
-              // Show the modal with the best match 
-              $("#resultsModal").modal('toggle');
-            });
-          } else {
-            alert("Please fill out all fields before submitting!");
-          };
-      
-          return false;
  
-  }
+        $("#submit").on("click", function() {
+            function validateForm() {
+                var isValid = true;
+                $('.form-control').each(function() {
+                    if ($(this).val() === '')
+                        isValid = false;
+                });
+                $('.chosen-select').each(function() {
+                    if ($(this).val() === "")
+                        isValid = false
+                })
+                return isValid;
+            }
+            // If all required fields are filled
+            if (validateForm() == true) {
+                // Create an object for the user's data
+                var userInput = {
+                        name: $("#name").val(),
+                        photo: $("#photo").val(),
+                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+                    }
+                    // Grab the URL of the website
+                var grabUrl = window.location.origin;
+                // AJAX post the data to the friends API. 
+                $.post(grabUrl + "/api/friends", userInput, function(data) {
+                    $("#matchName").text(data.name);
+                    $('#matchImg').attr("src", data.photo);
+                    $("#resultsModal").modal('toggle');
+                });
+            } else {
+                alert("Fill out the required fields!");
+            }
+            return false;
+        });
+    
+               
+            
 </script>
 
 </html>
