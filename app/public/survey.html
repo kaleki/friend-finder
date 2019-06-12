@@ -37,7 +37,7 @@
     <input type="text" name="" id="photo" class="form-control" required>
     <hr>
     <h3><strong>Question 1</strong></h3>
-    <h4>Do you agree with... "All men must die. How would you like to leave this world?"</h4>
+    <h4>How well do you agree with... "All men must die. How would you like to leave this world?"</h4>
     <select data-placeholder="" class="chosen-select" id="q1">
   <option value=""></option>
   <option value="1">1 (Strongly Disagree)</option>
@@ -48,7 +48,7 @@
 </select>
 
     <h3><strong>Question 2</strong></h3>
-    <h4>How well do you keep secrets?</h4>
+    <h4>You are good at keeping secrets?</h4>
     <select data-placeholder="" class="chosen-select" id="q2">
   <option value=""></option>
   <option value="1">1 (Strongly Disagree)</option>
@@ -170,7 +170,7 @@
             </div>
             <div class="modal-body">
                 <h2 id="matchName"></h2>
-                <img id="matchImg" src="https://via.placeholder.com/400x400" alt="Placeholder image in case user pic doesn't show">
+                <img id="matchImg" src="https://via.placeholder.com/400x400" alt="Placeholder image in case user picture doesn't show">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -180,6 +180,17 @@
 </div>
 
 <script type="text/javascript">
+// Chosen CSS
+// var config = {
+//       ".chosen-select": {},
+//       ".chosen-select-deselect": { allow_single_deselect: true },
+//       ".chosen-select-no-single": { disable_search_threshold: 10 },
+//       ".chosen-select-no-results": { no_results_text: "Oops, nothing found!" },
+//       ".chosen-select-width": { width: "95%" }
+//     };
+//     for (var selector in config) {
+//       $(selector).chosen(config[selector]);
+//     }
  
         $("#submit").on("click", function() {
             function validateForm() {
