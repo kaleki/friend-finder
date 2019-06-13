@@ -1,3 +1,4 @@
+var path = require("path");
 var friends = require('../data/friends.js');
 
 
@@ -39,26 +40,27 @@ module.exports = function(app) {
       };
 
       var userInput = req.body;
-      var userScore = userInput.score;
+      var userScore = userInput.scores;
       
 
-      var totalDiff = 0;
+      
+      for (var i = 0; i < friends.length; i++){
+        var totalDiff = 0;
+        for (var i = 0; userInput.length; i++){
 
-      for (var i = 0; i < friends[i].scores; i++){
-        totalDiff += Math.abs(parseInt(userScore[i]) - parseInt(friends[i].score[i]));
+            
+            totalDiff += Math.abs(friends[i].scores - userScore[i]);
+        }
       }
-      if (totalDiff <= match.friendDiff){
-          match.name = friends[i].name;
-          friends.photo = friends[i].photo;
-          match.friendDiff = totalDiff;
+      if (totalDiff <= friendDiff){ 
+          name = friends[i].name;
+          photo = friends[i].photo;
+          
       }
       friends.push(userInput);
       res.json(match);
   })
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
 
  
 };
