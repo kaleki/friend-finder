@@ -26,7 +26,7 @@
         <h1 class="">Game of Thrones Friend Finder.</h1>
 
         <hr>
-        <h2>Then find your the Game of Thrones Character that Matches you!</h2>
+        <h2>Find the Game of Thrones Character that Matches you!</h2>
     </div>
     <h2>Survey Questions</h2>
     <hr>
@@ -148,7 +148,7 @@
 </select>
     <br>
     <br>
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit!
 </button>
     <br>
     <br>
@@ -170,7 +170,7 @@
             </div>
             <div class="modal-body">
                 <h2 id="matchName"></h2>
-                <img id="matchImg" src="https://via.placeholder.com/400x400" alt="Placeholder image in case user picture doesn't show">
+                <img style="width:100%" id="matchImg" src="https://via.placeholder.com/400x400" alt="Placeholder image in case user picture doesn't show">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -193,6 +193,8 @@ var config = {
     }
  
         $("#submit").on("click", function() {
+            console.log('click');
+            
             function validateForm() {
                 var isValid = true;
                 $('.form-control').each(function() {
@@ -207,7 +209,7 @@ var config = {
             }
             // If all required fields are filled
             if (validateForm() == true) {
-                // Create an object for the user's data
+                // object for the user's data
                 var userInput = {
                         name: $("#name").val(),
                         photo: $("#photo").val(),
