@@ -29,3 +29,5 @@ Total Difference: 2 + 1 + 2 = 5
 The closest match will be the user with the least amount of difference.
 
 A modal should display both the name and picture of the closest match.
+
+Check my app out here https://shielded-lake-23609.herokuapp.com/ - automatic!
